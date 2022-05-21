@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+*,::after,::before{
+    box-sizing: border-box;
+}
+
+.paymentcss{
+    margin: 0;
+    font-family: 'Qyucjsand', sans-serif;
+    background-color: #554d47;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    background-color: #554d47;
+    padding: 50px 0;
+}
+
+.card{
+    background-color: #fff;
+    box-shadow: 0 4px 0 8px rgba(0, 0, 0, 0.2) , 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 300px;
+    border-radius: 29px ;
+}
+
+.pay{
+    font-size: 18px;
+    color: #554d47;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.amount{
+    background-color: #f3f3fd;
+    border-radius: 8px;
+}
+
+.inner{
+    padding: 8px 19px;
+}
+
+.dollar{
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.total{
+    font-size: 20px;
+    font-weight: 500;
+    color: #554d47;
+    margin-left: 5px;
+}
+
+.labeltxt{
+    font-size: 13px;
+    color: #adb5bd;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.image{
+    position: relative;
+    top: 44px;
+    right: 13px;
+}
+
+.form-control:focus{
+    box-shadow: none;
+}
+
+.inputtxt{
+    color: #554d47 !important;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 21px 0;
+    border: 2px solid #adb5bd;
+    border-radius: 7px;
+}
+
+.exptxt{
+    color: #adb5bd;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.cvvtxt{
+    font-size: 13px;
+    font-weight: 500;
+    color: #adb5bd;
+}
+
+.expiry{
+    padding: 21px 15px;
+    width: 120px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 2px solid #adb5bd;
+    border-radius: 7px;
+}
+
+.cvv{
+    padding: 21px 15px;
+    width: 120px;
+    border: 2px solid #adb5bd;
+    border-radius: 7px;
+}
+
+.cancel{
+    color: #adb5bd;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+}
+
+.cancel:hover,
+.cancel:focus{
+    box-shadow: none;
+    color: #fff;
+    background-color: #adb5bd;
+}
+
+.payment{
+    font-weight: 600;
+    margin-left: 50px;
+    font-size: 14px;
+    background-color: #554d47;
+    border: none;
+    width: 150px;
+    color: #fff;
+    padding: 15px 10px;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.payment:hover{
+    color: #fff;
+    
+}

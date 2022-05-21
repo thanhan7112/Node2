@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const PostSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+    profileImg: {
+        type: String
+    },
     Name:{
         type: String,
         require:true
@@ -13,8 +17,8 @@ const PostSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    // imgPost:{
-    //     type: String
+    // image: {
+    //     String
     // },
     date:{
         type: Date,
