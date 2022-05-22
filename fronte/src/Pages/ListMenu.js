@@ -1,6 +1,7 @@
 
 import { React, useState, useEffect, useReducer } from 'react'
 import Axios from "axios";
+import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import { FaPlusCircle, FaCartArrowDown, FaHandHoldingUsd, FaMinusCircle } from "react-icons/fa";
 const currencyOptions = {
@@ -75,6 +76,7 @@ function List(props) {
             </Card.Text>
             <Button variant="white" onClick={() => add(post)}><FaPlusCircle></FaPlusCircle></Button>
             <Button variant="white" onClick={() => remove(post)}><FaMinusCircle></FaMinusCircle></Button>
+            <Link style={{width:'8rem', height:'2.5rem'}} to={"/PaymentMetaMask/" + post._id} className="btn btn-primary">Metamask</Link>
           </Card.Body>
         </Card>
       ))}

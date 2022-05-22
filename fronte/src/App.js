@@ -25,13 +25,13 @@ function App() {
         <Route path='/About' element={<About />} />
         <Route path='/Menu' element={<Menu />} />
         <Route path='/Payment' element={<Payment />} />
-        <Route path='/PaymentMetaMask' element={<Metamask />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Login/user' element={<User />} />       
         <Route path='/Login/admin' element={<Signup />} />
         <Route exact path="/Login/user/signup" element={<SigninUser />} />
         <Route exact path="/Login/admin/signup" element={<Signin />} />
         <Route path='/Login/create' element={<Create/>} />
+        <Route path='/PaymentMetaMask/:postId' element={<Metamask/>} />
         <Route path='Login/edit/:postId' element={<Edit/>} />
         <Route path='/Login/index' element={<Index/>} />
         <Route path='*' element={<PageNotFound />} />

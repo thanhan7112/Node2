@@ -67,7 +67,7 @@ export default class Payment extends Component {
                         <div class="px-3 pt-3">
                             <label for="card number" class="d-flex justify-content-between">
                                 <span class="labeltxt">CARD NUMBER</span>
-                                <img src="images/mastercard.jpeg" alt="" width="30" class="image" />
+                                {/* <img src="/images/mastercard.jpeg" alt="" width="30" class="image" /> */}
                             </label>
                             <input value={this.state.CardNumber} onChange={this.onchangeCardNumber} type="number" name="number" class="form-control inputtxt" placeholder="1234 5678 6789 6789" />
                         </div>

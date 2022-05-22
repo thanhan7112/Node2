@@ -18,9 +18,6 @@ function Navbar() {
                         <Link to='/Payment' className='nav-link'>Payment</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to='/PaymentMetaMask' className='nav-link'>Payment with MetaMask</Link>
-                    </li>
-                    <li className="nav-item">
                         <Link to='/Login' className='nav-link'>Login</Link>
                     </li>
                 </ul>

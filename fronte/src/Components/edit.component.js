@@ -22,7 +22,7 @@ class Edit extends Component {
             Name: '',
             Price: '',
             postId: '',
-            Author:'',
+            Price:'',
             profileImg: ''
         }
     }

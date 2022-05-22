@@ -5,6 +5,7 @@
     height: 60px;
     background-color: rgb(43, 39, 39) ;
     text-overflow: ellipsis;
+    overflow: hidden;
 }
 .nav-item{
     padding-right: 60px; 
@@ -12,6 +13,7 @@
     color: aliceblue;
 }
 .navbar-nav{
+    /* filter: blur(2px); */
     margin-left: 170px;
 }
 .nav-link{
