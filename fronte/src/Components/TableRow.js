@@ -18,7 +18,7 @@ class TableRow extends Component {
         return (
             <tr >
                 <td >
-                    <a style={{ width: '5%' }}><img style={{ width: '50px', height:'50px' }} alt="" src={this.props.obj.profileImg}></img></a>
+                    <a style={{ width: '5%', marginLeft:'4.5rem' }}><img style={{ width: '50px', height:'50px', backgroundColor:'black'}} alt="" src={this.props.obj.profileImg}></img></a>
                 </td>
                 <td>
                     {this.props.obj.Name}
@@ -28,6 +28,9 @@ class TableRow extends Component {
                 </td>
                 <td>
                     {this.props.obj.Author}
+                </td>
+                <td>
+                    {this.props.obj.Detail}
                 </td>
                 <td>
                     <Link to={"/Login/edit/" + this.props.obj._id} className="btn btn-primary">Edit</Link>

@@ -15,7 +15,8 @@ class Edit extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangePrice = this.onChangePrice.bind(this);
         this.onChangeAuthor = this.onChangeAuthor.bind(this);
-        this.onFileChange = this.onFileChange.bind(this);
+        // this.onFileChange = this.onFileChange.bind(this);
+        this.onChangeDetail = this.onChangeDetail.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -23,7 +24,8 @@ class Edit extends Component {
             Price: '',
             postId: '',
             Price:'',
-            profileImg: ''
+            // profileImg: '',
+            Detail:''
         }
     }
 
@@ -35,15 +37,21 @@ class Edit extends Component {
                     Price: response.data.Price,
                     postId: response.data.postId,
                     Author: response.data.Author, 
-                    profileImg: response.data.profileImg         
+                    // profileImg: response.data.profileImg,
+                    Detail: response.data.Detail,   
                 });
             })
             .catch(function (error) {
                 console.log(error);
             })
     }
-    onFileChange(e) {
-        this.setState({ profileImg: e.target.files[0] })
+    // onFileChange(e) {
+    //     this.setState({ profileImg: e.target.files[0] })
+    // }
+    onChangeDetail(e) {
+        this.setState({
+            Detail: e.target.value
+        });
     }
     onChangeName(e) {
         this.setState({
@@ -63,10 +71,11 @@ class Edit extends Component {
     onSubmit(e) {
         e.preventDefault();
         const obj = new FormData()
-        obj.append('profileImg', this.state.profileImg)
+        // obj.append('profileImg', this.state.profileImg)
         obj.append('Name', this.state.Name)
         obj.append('Price', this.state.Price)
         obj.append('Author', this.state.Author)
+        obj.append('Detail', this.state.Detail)
         // const obj = {
         //     Name: this.state.Name,
         //     Price: this.state.Price,
@@ -78,7 +87,8 @@ class Edit extends Component {
                 Name: '',
                 Price: '',
                 Author: '',
-                profileImg: ''
+                // profileImg: '',
+                Detail:''
             })
 
     }
@@ -114,8 +124,16 @@ class Edit extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <input type="file" onChange={this.onFileChange} />
+                        <input type="text"
+                            className="form-control"
+                            value={this.state.Detail}
+                            onChange={this.onChangeDetail}
+                            placeholder="Author"
+                        />
                     </div>
+                    {/* <div className="form-group">
+                        <input type="file" onChange={this.onFileChange} />
+                    </div> */}
                     <div className="form-group">
                         <input type="submit"
                             value="Update Post"

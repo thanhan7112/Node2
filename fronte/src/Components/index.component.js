@@ -30,13 +30,14 @@ export default class Index extends Component {
         return (
             <div>
 
-                <table className="table table-striped" style={{ marginTop: 20 }}>
+                <table className="table table-striped" style={{ marginTop: 20 , width:'90%', marginLeft:'4rem'}}>
                     <thead>
                         <tr>
-                            <th>IMG</th>
+                            <th style={{paddingLeft:'4rem'}}>IMG</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Author</th>
+                            <th>Detail</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>

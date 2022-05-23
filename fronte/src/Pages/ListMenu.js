@@ -3,6 +3,7 @@ import { React, useState, useEffect, useReducer } from 'react'
 import Axios from "axios";
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
+import { FaEthereum } from "react-icons/fa";
 import { FaPlusCircle, FaCartArrowDown, FaHandHoldingUsd, FaMinusCircle } from "react-icons/fa";
 const currencyOptions = {
   minimumFractionDigits: 2,
@@ -62,22 +63,24 @@ function List(props) {
   })
   return (
     <div className='row' style={{ margin: '0 auto'}}>
-      <div style={{ marginLeft: '92%', marginTop: '-2%' }}><FaCartArrowDown></FaCartArrowDown> {cart.length}</div>
+      {/* <div style={{ marginLeft: '92%', marginTop: '-2%' }}><FaCartArrowDown></FaCartArrowDown> {cart.length}</div>
       <div style={{ marginLeft: '92%', marginTop: '-1%' }}><FaHandHoldingUsd></FaHandHoldingUsd>
-        {getTotal(cart)}</div>
+        {getTotal(cart)}</div> */}
       {filteredData.map((post) => (
-        <Card key={post.Name} style={{ width: '18rem', marginLeft: '4rem', color: 'black', marginTop: '3rem', height:'25rem' }}>
+        <Card className='btn-card' key={post.Name} style={{ width: '18rem', marginLeft: '4rem', color: 'black', marginTop: '3rem', height:'25rem' }}>
           <Card.Img style={{height:'50%', marginBottom:'20px', marginTop:'10px'}} variant="top" src={post.profileImg} />
+          <center>
           <Card.Body >
-            <Card.Title >{post.Name}</Card.Title>
-            <Card.Title>{post.Author}</Card.Title>
-            <Card.Text>
-              {post.Price} $
+            <Card.Title className='text'>{post.Name}</Card.Title>
+            <Card.Title className='text'>{post.Author}</Card.Title>
+            <Card.Text className='text'>
+              {post.Price} <FaEthereum style={{marginTop:'-4px'}}></FaEthereum>
             </Card.Text>
-            <Button variant="white" onClick={() => add(post)}><FaPlusCircle></FaPlusCircle></Button>
-            <Button variant="white" onClick={() => remove(post)}><FaMinusCircle></FaMinusCircle></Button>
-            <Link style={{width:'8rem', height:'2.5rem'}} to={"/PaymentMetaMask/" + post._id} className="btn btn-primary">Metamask</Link>
+            {/* <Button variant="white" onClick={() => add(post)}><FaPlusCircle></FaPlusCircle></Button>
+            <Button variant="white" onClick={() => remove(post)}><FaMinusCircle></FaMinusCircle></Button> */}
+            <Link style={{width:'8rem', height:'2.5rem'}} to={"/PayWithMetaMask/" + post._id} className="btn ">Metamask</Link>
           </Card.Body>
+          </center>
         </Card>
       ))}
     </div>

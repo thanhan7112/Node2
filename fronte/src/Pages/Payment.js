@@ -52,7 +52,7 @@ export default class Payment extends Component {
     render() {
         return (
             <div className='paymentcss' >
-                <form onSubmit={this.onSubmit} className="container mt-4 main">
+                <form style={{marginLeft:'40%'}} onSubmit={this.onSubmit} className="container mt-4 ">
                     <div class="card" >
                         <div class="d-flex justify-content-between px-3 pt-4">
                             <span class="pay">Payment</span>
@@ -85,10 +85,10 @@ export default class Payment extends Component {
 
                         <div class="d-flex align-items-center justify-container-between px-3 py-4">
                             <div>
-                                <button type="button" class="btn cancel">Cancel</button>
+                                <button type="button" style={{marginRight:'4rem'}} class="btn cancel">Cancel</button>
                             </div>
                             <div>
-                                <button type="submit" class="btn payment">Make Payment</button>
+                                <button type="submit" class="btn">Make Payment</button>
                             </div>
                         </div>
                     </div>

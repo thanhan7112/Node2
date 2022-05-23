@@ -45,6 +45,7 @@ router.post('/',upload.single('profileImg'), async (req, res) => {
         Name: req.body.Name,
         Price: req.body.Price,
         Author: req.body.Author,
+        Detail: req.body.Detail,
         profileImg: url + '/public/' + req.file.filename
     });
     try {

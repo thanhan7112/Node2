@@ -82,64 +82,70 @@ export default function Metamask() {
     };
     return (
         <div className="mainP">
-        <div className="payment">
-            <div className="Detail-Menu" >
-                <h1>{posts.Name}</h1>
-                <p>Price: {posts.Price} <FaEthereum style={{marginTop:'-3px'}}></FaEthereum></p>
-                <p>{posts.Author}</p>
-                <img alt="" src={posts.profileImg}></img>
-            </div>
-            <form className="form-A" onSubmit={handleSubmit}>
-                <div className="credit-card " >
-                    <main >
-                        <div>
-                            <Button style={{marginLeft:'0.8rem'}} onClick={btnhandler} variant="primary">
-                                Connect to wallet
-                            </Button>
-                            <h3 style={{ float: 'right' }}>{data.Balance}<FaEthereum style={{ marginTop: '-0.3rem' }} /></h3>
-                        </div>
-                        <center >
-                            <h1 className="text-xl font-semibold text-gray-700 text-center" style={{paddingLeft:'9rem'}}>
-                                ETH payment
-                            </h1>
-                            <div > 
-                                <div className="my-3">
-                                    <input
-                                        type="text"
-                                        name="addr"
-                                        value={data.address}
-                                        className="input input-bordered block w-full focus:ring focus:outline-none"
-                                        placeholder="Recipient Address"
-                                    />
-                                </div>
-                                <div className="my-3">
-                                    <input
-                                        name="ether"
-                                        type="text"
-                                        value={posts.Price}
-                                        className="input input-bordered block w-full focus:ring focus:outline-none"
-                                        placeholder="Amount in ETH"
-                                    />
-                                </div>
-                                
-                            </div>
-                            <footer className="p-4">
-                                <button
-                                    type="submit"
-                                    className="btn btn-primary submit-button focus:ring focus:outline-none w-full"
-                                >
-                                    Pay now
-                                </button>
-                                
-                            </footer>
-                        </center>
-
-                    </main>
-
+            <div className="payment">
+                <div className="Detail-Menu" >
+                    <div className="text" style={{width:'40%', marginTop:'4rem'}}>
+                    <h3>{posts.Name}</h3>
+                    <p>Price: {posts.Price} <FaEthereum style={{ marginTop: '-3px' }}></FaEthereum></p>
+                    <p>Author: {posts.Author}</p>
+                    <p>Detail: {posts.Detail}</p>
+                    </div>
+                    <div className="img" style={{width:'60%', float:'right', marginTop:'-9rem'}}>
+                    <img alt="" src={posts.profileImg}></img>
+                    </div>
                 </div>
-            </form>
-        </div>
-        <TransactionM txs={txs} />
+                <form className="form-A" onSubmit={handleSubmit}>
+                    <div className="credit-card " >
+                        <main >
+                            <div>
+                                <Button style={{ marginLeft: '0.8rem' }} onClick={btnhandler} >
+                                    Connect to wallet
+                                </Button>
+                                <h3 style={{ float: 'right' }}>{data.Balance}<FaEthereum className="icon" style={{ marginTop: '-0.3rem' }} /></h3>
+                            </div>
+                            <center >
+                                <h3 className="text-xl font-semibold text-gray-700 text-center" style={{ paddingLeft: '1.5rem' }}>
+                                    ETH payment
+                                </h3>
+                                <div >
+                                    <div className="my-3">
+                                        <input
+                                            type="text"
+                                            name="addr"
+                                            value={data.address}
+                                            className="input input-bordered block w-full focus:ring focus:outline-none"
+                                            placeholder="Please connect with wallet"
+                                        />
+                                    </div>
+                                    <div className="my-3">
+                                        <input
+                                            name="ether"
+                                            type="text"
+                                            value={posts.Price}
+                                            className="input input-bordered block w-full focus:ring focus:outline-none"
+                                            placeholder="Amount in ETH"
+                                        />
+                                    </div>
+
+                                </div>
+                                <footer className="p-4">
+                                    <button
+                                        type="submit"
+                                        style={{color:'white'}}
+                                        className="btn submit-button focus:ring focus:outline-none w-full"
+                                    >
+                                        Pay now
+                                    </button>
+
+                                </footer>
+                            </center>
+
+                        </main>
+
+                    </div>
+                </form>
+            </div>
+            <TransactionM txs={txs} />
         </div>
     );
 }

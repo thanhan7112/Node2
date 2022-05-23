@@ -1,5 +1,4 @@
-
-.row{
+.row {
   margin: 0px;
   padding: 0px;
   width: 100vw;
@@ -7,10 +6,11 @@
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   font-family: 'Lato' !important;
 }
-.search-box{
+
+.search-box {
   border-radius: 5px;
   margin-top: 2%;
   margin-left: 3.2%;
@@ -20,11 +20,12 @@
   position: relative;
   box-sizing: border-box;
 }
-.input-search{
+
+.input-search {
   border-radius: 5px;
   height: 40px;
   width: 40px;
-  background-color: #677f81;
+  /* background-color: #677f81; */
   border-style: none;
   padding: 10px;
   font-size: 18px;
@@ -33,17 +34,19 @@
   border-radius: 25px;
   transition: all .5s ease-in-out;
   padding-right: 40px;
-  color:#0f0b0b ;
+  color: #0f0b0b;
   box-sizing: border-box;
 }
-.input-search::placeholder{
-  color:rgba(255,255,255,.5);
+
+.input-search::placeholder {
+  color: rgba(255, 255, 255, .5);
   font-size: 18px;
   letter-spacing: 2px;
   font-weight: 100;
   box-sizing: border-box;
 }
-.btn-search{
+
+.btn-search {
   width: 50px;
   height: 50px;
   border-style: none;
@@ -55,25 +58,53 @@
   position: absolute;
   right: 0px;
   border-radius: 5px;
-  background-color:transparent;
-  pointer-events: painted;  
+  background-color: transparent;
+  pointer-events: painted;
   box-sizing: border-box;
-  
+
 }
-.btn-search:focus ~ .input-search{
+
+.btn-search:focus~.input-search {
   width: 300px;
   border-radius: 5px;
   background-color: transparent;
-  border-bottom:1px solid rgba(255,255,255,.5);
-  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  box-sizing: border-box;
-}
-.input-search:focus{
-  /* width: 300px; */
-  border-radius: 5px;
-  background-color: transparent;
-  border-bottom:1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   box-sizing: border-box;
 }
 
+.input-search:focus {
+  /* width: 300px; */
+  border-radius: 5px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  box-sizing: border-box;
+}
+
+.btn-card {
+  background: linear-gradient(-45deg, #070607, #30393a, #182327, #3a1b1f);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100%;
+}
+.text{
+  color: aliceblue;
+}
+.icon {
+  color: #1a2925;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

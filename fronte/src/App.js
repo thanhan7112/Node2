@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/Login/user/signup" element={<SigninUser />} />
         <Route exact path="/Login/admin/signup" element={<Signin />} />
         <Route path='/Login/create' element={<Create/>} />
-        <Route path='/PaymentMetaMask/:postId' element={<Metamask/>} />
+        <Route path='/PayWithMetaMask/:postId' element={<Metamask/>} />
         <Route path='Login/edit/:postId' element={<Edit/>} />
         <Route path='/Login/index' element={<Index/>} />
         <Route path='*' element={<PageNotFound />} />

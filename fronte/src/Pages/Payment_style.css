@@ -7,7 +7,7 @@
 .paymentcss{
     margin: 0;
     font-family: 'Qyucjsand', sans-serif;
-    background-color: #554d47;
+    /* background-color: #554d47; */
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -15,13 +15,13 @@
 }
 
 .main{
-    background-color: #554d47;
+    /* background-color: #554d47; */
     padding: 50px 0;
 }
 
 .card{
-    background-color: #fff;
-    box-shadow: 0 4px 0 8px rgba(0, 0, 0, 0.2) , 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* background-color: #fff; */
+    /* box-shadow: 0 4px 0 8px rgba(0, 0, 0, 0.2) , 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     width: 300px;
     border-radius: 29px ;
 }
@@ -34,7 +34,7 @@
 }
 
 .amount{
-    background-color: #f3f3fd;
+    /* background-color: #f3f3fd; */
     border-radius: 8px;
 }
 
@@ -120,14 +120,14 @@
 .cancel:focus{
     box-shadow: none;
     color: #fff;
-    background-color: #adb5bd;
+    /* background-color: #adb5bd; */
 }
 
 .payment{
     font-weight: 600;
     margin-left: 50px;
     font-size: 14px;
-    background-color: #554d47;
+    /* background-color: #554d47; */
     border: none;
     width: 150px;
     color: #fff;

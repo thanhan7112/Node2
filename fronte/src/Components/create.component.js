@@ -10,6 +10,7 @@ export default class Create extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangePrice = this.onChangePrice.bind(this);
         this.onChangeAuthor = this.onChangeAuthor.bind(this);
+        this.onChangeDetail = this.onChangeDetail.bind(this);
         this.onFileChange = this.onFileChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -17,7 +18,8 @@ export default class Create extends Component {
             Name: '',
             Price: '',
             Author: '',
-            profileImg: ''
+            profileImg: '',
+            Detail:''
         }
     }
     onFileChange(e) {
@@ -28,7 +30,11 @@ export default class Create extends Component {
             Name: e.target.value
         });
     }
-
+    onChangeDetail(e) {
+        this.setState({
+            Detail: e.target.value
+        });
+    }
     onChangePrice(e) {
         this.setState({
             Price: e.target.value
@@ -46,6 +52,7 @@ export default class Create extends Component {
         obj.append('Name', this.state.Name)
         obj.append('Price', this.state.Price)
         obj.append('Author', this.state.Author)
+        obj.append('Detail', this.state.Detail)
         // const obj = {
         //     Name: this.state.Name,
         //     Price: this.state.Price,
@@ -59,7 +66,8 @@ export default class Create extends Component {
             Name: '',
             Price: '',
             Author: '',
-            profileImg: ''
+            profileImg: '',
+            Detail:''
         })
     }
 
@@ -83,6 +91,12 @@ export default class Create extends Component {
                         <input type="text" className="form-control"
                             value={this.state.Author}
                             onChange={this.onChangeAuthor} placeholder="Author"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input type="text" className="form-control"
+                            value={this.state.Detail}
+                            onChange={this.onChangeDetail} placeholder="Detail"
                         />
                     </div>
                     <div className="form-group">

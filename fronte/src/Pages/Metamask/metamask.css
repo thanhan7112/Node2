@@ -53,3 +53,35 @@ img{
     /* margin-left: rem; */
     overflow: hidden;
 }
+.Detail-Menu {
+	background: linear-gradient(-45deg, #6e5c56, #8a586c, #598291, #53bda4);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100%;
+}
+.form-A {
+	background: linear-gradient(-45deg, #6e5c56, #8a586c, #598291, #53bda4);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100%;
+}
+.btn{
+    background: linear-gradient(-45deg, #7b6883, #8edde7, #598291, #53bda4);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100%;
+}
+.icon{
+    color: #1a2925;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

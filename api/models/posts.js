@@ -17,9 +17,9 @@ const PostSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    // image: {
-    //     String
-    // },
+    Detail: {
+        type: String,
+    },
     date:{
         type: Date,
         default: Date.now
