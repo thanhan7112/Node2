@@ -21,21 +21,21 @@ class Edit extends Component {
 
         this.state = {
             Name: '',
-            Price: '',
-            postId: '',
+            productId: '',
             Price:'',
+            Author:'',
             // profileImg: '',
             Detail:''
         }
     }
 
     componentDidMount() {
-        axios.get('http://localhost:7000/posts/' + this.props.params.postId)
-            .then(response => {
+        axios.get('http://localhost:8090/api/products/' + this.props.params.productId)
+            .then(response => { console.log(response.data)
                 this.setState({
                     Name: response.data.Name,
                     Price: response.data.Price,
-                    postId: response.data.postId,
+                    productId: response.data.productId,
                     Author: response.data.Author, 
                     // profileImg: response.data.profileImg,
                     Detail: response.data.Detail,   
@@ -48,28 +48,28 @@ class Edit extends Component {
     // onFileChange(e) {
     //     this.setState({ profileImg: e.target.files[0] })
     // }
-    onChangeDetail(e) {
+    onChangeDetail(event) {
         this.setState({
-            Detail: e.target.value
+            Detail: event.target.value
         });
     }
-    onChangeName(e) {
+    onChangeName(event) {
         this.setState({
-            Name: e.target.value
+            Name: event.target.value
         });
     }
-    onChangePrice(e) {
+    onChangePrice(event) {
         this.setState({
-            Price: e.target.value
+            Price: event.target.value
         })
     }
-    onChangeAuthor(e) {
+    onChangeAuthor(event) {
         this.setState({
-            Author: e.target.value
+            Author: event.target.value
         })
     }
-    onSubmit(e) {
-        e.preventDefault();
+    onSubmit(event) {
+        event.preventDefault();
         const obj = new FormData()
         // obj.append('profileImg', this.state.profileImg)
         obj.append('Name', this.state.Name)
@@ -81,7 +81,7 @@ class Edit extends Component {
         //     Price: this.state.Price,
         //     Author: this.state.Author
         // };
-        axios.patch('http://localhost:7000/posts/' + this.props.params.postId, obj)
+        axios.patch('http://localhost:8090/api/products/' + this.props.params.productId, obj)
             .then(res => console.log(res.data));
             this.setState({
                 Name: '',
@@ -90,13 +90,12 @@ class Edit extends Component {
                 // profileImg: '',
                 Detail:''
             })
-
     }
 
     render() {
         return (
-            <div className='Container'>
-                <h3 align="center">ID:{this.props.params.postId}</h3>
+ <div className='Container'>
+                <h3 align="center">ID:{this.props.params.productId}</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <input

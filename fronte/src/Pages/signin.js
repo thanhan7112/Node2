@@ -1,100 +1,57 @@
 import React, { useState, useEffect } from "react";
 // import Admin from "./Admin";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from "axios";
 import './singin.css';
+import { useNavigate } from "react-router-dom";
+const Signup = () => {
+  const navigate = useNavigate();
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [msg, setMsg] = useState('');
 
-import Admin from "../Components/Admin";
-function Signup() {
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [database, fetchUsers] = useState([])
-  const getData = () => {
-    fetch('http://localhost:8000/users')
-      .then((res) => res.json())
-      .then((res) => {
-        // console.log(res)
-        fetchUsers(res)
-      })
-  }
-  // window.onbeforeunload = function(){ return "Are you sure you want to leave our website?"; };
-  useEffect(() => {
-    getData()
-  }, [])
-  const errors = {
-    usn: "invalid Email",
-    pass: "invalid Password"
-  };
-
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
-
-    var { usn, pass } = document.forms[0];
-
-    //Tìm thông tin đăng nhập của người dùng
-    const userData = database.find((user) => user.Email === usn.value);
-
-    // So sánh thông tin người dùng
-    if (userData) {
-      if (userData.Password !== pass.value) {
-        // Mật khẩu không hợp lệ
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
+  const Auth = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('http://localhost:8090/api/login', {
+        Email: Email,
+        Password: Password
+      });
+      navigate('/Login/admin/pageadmin');
+    } catch (error) {
+      if (error.response) {
+        setMsg(error.response.data.msg);
       }
-    } else {
-      // tên người sử dụng không được tìm thấy
-      setErrorMessages({ name: "usn", message: errors.usn });
     }
-  };
-
-  // Trả ra thông báo lỗi khi được gọi tới thông qua name ( name sẽ gọi đến lỗi pass hoặc usn)
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
-  const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <center>
-          <div>
-            <img src="/images/signin-image.jpg" alt="signup" />
-            <br />
-          </div>
-        </center>
-        <center>
-          <div className="fadeIn first">
-            <input type="text" className="fadeIn second" id="login" name="usn" required placeholder="Email" />
-            {renderErrorMessage("usn")}
-          </div>
-          <div className="fadeIn first">
-            <input id="password" className="fadeIn third" type="Password" name="pass" required placeholder="Password" />
-            {renderErrorMessage("pass")}
-          </div>
-        </center>
-        <center>
-          <div >
-            <input type="submit" value='Login' />
-          </div>
-        </center>
-        <div id="formFooter">
-          <p>
-            Create account?
-            <a href="/Login/admin/signup" className="underlineHover">
-              Sign up here
-            </a>
-          </p>
-        </div>
-      </form>
-    </div>
-  );
+  }
   return (
-
-    <div className="login">
-      <div className="login-form">
-        {isSubmitted ? <Admin/> : renderForm}
-      </div>
+    <div className="form" >
+      <form onSubmit={Auth}>
+        <center>
+          <img src="/images/signin-image.jpg" alt="signup" />
+          <div className="fadeIn first" id="input-with-icon-div" style={{ marginBottom: "3px" }}
+            variant="standard">
+            <p className="has-text-centered">{msg}</p>
+            <input type="text" className="fadeIn second" placeholder="User Name"
+              value={Email} onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="fadeIn first">
+            <input placeholder="Password" type="Password" className="fadeIn second" value={Password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <div className="fadeIn first">
+            <input type="submit" value="Login" className="btn btn-primary" />
+          </div>
+          <div id="formFooter">
+            <p>
+              Create account?
+              <a href="/Login/admin/signup" className="underlineHover">
+                Sign in here
+              </a>
+            </p>
+          </div>
+        </center>
+      </form>
     </div>
 
   );

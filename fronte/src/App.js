@@ -16,6 +16,8 @@ import User from './Pages/User';
 import Login from './Pages/Login';
 import SigninUser from './Pages/signupUser';
 import Metamask from './Pages/Metamask/metamask';
+import Sold from './Pages/Sold';
+import Admin from './Components/Admin';
 function App() {
   return (
     <BrowserRouter>
@@ -28,11 +30,13 @@ function App() {
         <Route path='/Login' element={<Login />} />
         <Route path='/Login/user' element={<User />} />       
         <Route path='/Login/admin' element={<Signup />} />
+        <Route path='/Login/admin/pageadmin' element={<Admin/>}/>
         <Route exact path="/Login/user/signup" element={<SigninUser />} />
         <Route exact path="/Login/admin/signup" element={<Signin />} />
         <Route path='/Login/create' element={<Create/>} />
-        <Route path='/PayWithMetaMask/:postId' element={<Metamask/>} />
-        <Route path='Login/edit/:postId' element={<Edit/>} />
+        <Route path='/PayWithMetaMask/:productId' element={<Metamask/>} />
+        <Route path='Login/edit/:productId' element={<Edit/>} />
+        <Route path='/Login/Sold' element={<Sold/>} />
         <Route path='/Login/index' element={<Index/>} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>

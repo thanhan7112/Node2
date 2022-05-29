@@ -17,14 +17,14 @@ function getTotal(cart) {
 function cartReducer(state, action) {
   switch (action.type) {
     case 'add':
-      return [...state, action.post];
+      return [...state, action.product];
     case 'remove':
-      const postIndex = state.findIndex(item => item.Name === action.post.Name);
-      if (postIndex < 0) {
+      const productIndex = state.findIndex(item => item.Name === action.product.Name);
+      if (productIndex < 0) {
         return state;
       }
       const update = [...state];
-      update.splice(postIndex, 1)
+      update.splice(productIndex, 1)
       return update
     default:
       return state;
@@ -33,28 +33,28 @@ function cartReducer(state, action) {
 function List(props) {
   const [cart, setCart] = useReducer(cartReducer, []);
 
-  function add(post) {
-    setCart({ post, type: 'add' });
+  function add(product) {
+    setCart({ product, type: 'add' });
   }
 
-  function remove(post) {
-    setCart({ post, type: 'remove' });
+  function remove(product) {
+    setCart({ product, type: 'remove' });
   }
-  const [posts, setPosts] = useState([]);
-  const fetchPosts = async () => {
+  const [products, setProducts] = useState([]);
+  const fetchProducts = async () => {
     const { data } = await Axios.get(
-      "http://localhost:7000/posts"
+      "http://localhost:8090/api/products"
     );
-    const posts = data;
-    setPosts(posts);
-    console.log(posts);
+    const products = data;
+    setProducts(products);
+    console.log(products);
   };
 
   useEffect(() => {
-    fetchPosts();
+    fetchProducts();
   }, []);
 
-  const filteredData = posts.filter((el) => {
+  const filteredData = products.filter((el) => {
     if (props.input === '') {
       return el;
     } else {
@@ -63,22 +63,19 @@ function List(props) {
   })
   return (
     <div className='row' style={{ margin: '0 auto'}}>
-      {/* <div style={{ marginLeft: '92%', marginTop: '-2%' }}><FaCartArrowDown></FaCartArrowDown> {cart.length}</div>
-      <div style={{ marginLeft: '92%', marginTop: '-1%' }}><FaHandHoldingUsd></FaHandHoldingUsd>
-        {getTotal(cart)}</div> */}
-      {filteredData.map((post) => (
-        <Card className='btn-card' key={post.Name} style={{ width: '18rem', marginLeft: '4rem', color: 'black', marginTop: '3rem', height:'25rem' }}>
-          <Card.Img style={{height:'50%', marginBottom:'20px', marginTop:'10px'}} variant="top" src={post.profileImg} />
+      {filteredData.map((product) => (
+        <Card className='btn-card' key={product.Name} style={{ width: '18rem', marginLeft: '4rem', color: 'black', marginTop: '3rem', height:'25rem' }}>
+          <Card.Img style={{height:'50%', marginBottom:'20px', marginTop:'10px'}} variant="top" src={product.profileImg} />
           <center>
           <Card.Body >
-            <Card.Title className='text'>{post.Name}</Card.Title>
-            <Card.Title className='text'>{post.Author}</Card.Title>
+            <Card.Title className='text'>{product.Name}</Card.Title>
+            <Card.Title className='text'>{product.Author}</Card.Title>
             <Card.Text className='text'>
-              {post.Price} <FaEthereum style={{marginTop:'-4px'}}></FaEthereum>
+              {product.Price} <FaEthereum style={{marginTop:'-4px'}}></FaEthereum>
             </Card.Text>
             {/* <Button variant="white" onClick={() => add(post)}><FaPlusCircle></FaPlusCircle></Button>
             <Button variant="white" onClick={() => remove(post)}><FaMinusCircle></FaMinusCircle></Button> */}
-            <Link style={{width:'8rem', height:'2.5rem'}} to={"/PayWithMetaMask/" + post._id} className="btn ">Metamask</Link>
+            <Link style={{width:'8rem', height:'2.5rem'}} to={"/PayWithMetaMask/" + product._id} className="btn ">Metamask</Link>
           </Card.Body>
           </center>
         </Card>

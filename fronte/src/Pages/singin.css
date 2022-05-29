@@ -29,8 +29,11 @@ html {
   
   /* STRUCTURE */
   .form{
+    margin-left: 35%;
+    margin-top: 6rem;
     width: 60vh;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    height: 100%;
   }
   .wrapper {
     display: flex;

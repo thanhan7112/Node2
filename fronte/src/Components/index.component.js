@@ -6,14 +6,14 @@ import '../Pages/singin.css';
 export default class Index extends Component {
     constructor(props) {
         super(props);
-        this.state = { posts: [] };
+        this.state = { products: [] };
     }
 
     componentDidMount() {
-        axios.get('http://localhost:7000/posts')
+        axios.get('http://localhost:8090/api/products')
             .then(response => {
                 console.log(response.data);
-                this.setState({ posts: response.data });
+                this.setState({ products: response.data });
             })
             .catch(function (error) {
                 console.log(error);
@@ -21,7 +21,7 @@ export default class Index extends Component {
     }
 
     tabRow() {
-        return this.state.posts.map(function (object, i) {
+        return this.state.products.map(function (object, i) {
             return <TableRow obj={object} key={i} />;
         });
     }

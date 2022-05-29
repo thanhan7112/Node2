@@ -1,107 +1,72 @@
-import React, { Component } from "react";
+import React, { useState } from 'react'
 import './singin.css';
-// import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-export default class Signin extends Component {
-  x
-  constructor(props) {
-    super(props);
-    this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeMobileNumber = this.onChangeMobileNumber.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+const Signin = () => {
+  const navigate = useNavigate();
+  const [Name, setName] = useState('');
+  const [MobileNumber, setMobileNumber] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [confPassword, setConfPassword] = useState('');
 
-    this.state = {
-      Name: '',
-      Email: '',
-      Password: '',
-      MobileNumber: ''
-    }
-
-  }
-  onChangeName(e) {
-    this.setState({
-      Name: e.target.value
-    });
-  }
-
-  onChangeEmail(e) {
-    this.setState({
-      Email: e.target.value
-    });
-  }
-
-  onChangeMobileNumber(e) {
-    this.setState({
-      MobileNumber: e.target.value
-    });
-  }
-  onChangePassword(e) {
-    this.setState({
-      Password: e.target.value
-    });
-  }
-
-  onSubmit(e) {
+  const Register = async (e) => {
     e.preventDefault();
-
-    const user = {
-      Name: this.state.Name,
-      Email: this.state.Email,
-      MobileNumber: this.state.MobileNumber,
-      Password: this.state.Password
-    };
-    axios.post('http://localhost:8000/users', user)
-      .then(res => console.log(res.data));
-
-    this.setState({
-      Name: '',
-      Email: '',
-      MobileNumber: '',
-      Password: ''
-    })
+    try {
+      await axios.post('http://localhost:8090/api/regist', {
+        MobileNumber: MobileNumber,
+        Name: Name,
+        Email: Email,
+        Password: Password,
+        confPassword: confPassword
+      });
+      navigate("/Login/admin");
+    } catch (error) {
+      console.log(error)
+    }
   }
-  render() {
-    return (
-      <div className="form" >
-        <form onSubmit={this.onSubmit}>
-          <center>
+  return (
+    <div className="form" >
+      <form onSubmit={Register}>
+        <center>
           <img src="/images/signup-image.jpg" alt="signup" />
-          <div className="fadeIn first" id="input-with-icon-div"  style={{ marginBottom: "3px" }}
+          <div className="fadeIn first" id="input-with-icon-div" style={{ marginBottom: "3px" }}
             variant="standard">
             <input type="text" className="fadeIn second" placeholder="User Name"
-              value={this.state.Name}
-              onChange={this.onChangeName}
+              value={Name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="fadeIn first">
-            <input placeholder="Email" type="text" className="fadeIn second" value={this.state.Email}
-              onChange={this.onChangeEmail} />
+            <input placeholder="Your Phone Number" type="text" className="fadeIn second" value={MobileNumber}
+              onChange={(e) => setMobileNumber(e.target.value)} />
           </div>
           <div className="fadeIn first">
-            <input placeholder="Your Phone Number" type="text" className="fadeIn second" value={this.state.MobileNumber}
-              onChange={this.onChangeMobileNumber} />
+            <input placeholder="Email" type="text" className="fadeIn second" value={Email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+
+          <div className="fadeIn first">
+            <input placeholder="Password" type="Password" className="fadeIn second" value={Password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           <div className="fadeIn first">
-            <input placeholder="Password" type="Password" className="fadeIn second" value={this.state.Password}
-              onChange={this.onChangePassword} />
+            <input placeholder="Password" type="Password" className="fadeIn second" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} />
           </div>
-          <div  className="fadeIn first">
+          <div className="fadeIn first">
             <input type="submit" value="Register User" className="btn btn-primary" />
           </div>
           <div id="formFooter">
-                 <p>
-                   Have already an account?
-                   <a href="/Login/admin" className="underlineHover">
-                     Sign in here
-                   </a>
-                 </p>
-             </div>
-          </center>
-        </form>
-      </div>
+            <p>
+              Have already an account?
+              <a href="/Login/admin" className="underlineHover">
+                Sign in here
+              </a>
+            </p>
+          </div>
+        </center>
+      </form>
+    </div>
 
-    );
-  }
+  );
 }
+// }
+export default Signin;

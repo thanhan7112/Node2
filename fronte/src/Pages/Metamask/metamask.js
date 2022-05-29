@@ -6,39 +6,47 @@ import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom"
 import { FaEthereum } from "react-icons/fa";
 import './metamask.css'
-const startPayment = async ({ setError, setTxs, ether, addr }) => {
-
-    try {
-        window.ethereum.send("eth_requestAccounts");
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        ethers.utils.getAddress(addr);
-        const tx = await signer.sendTransaction({
-            to: "0xfA0294310A6304AB50819F66D642d9f1511e402A",
-            from: addr,
-            value: ethers.utils.parseEther(ether)
-        });
-        console.log({ ether, addr });
-        console.log("tx", tx);
-        setTxs([tx]);
-    } catch (err) {
-        setError(err.message);
-    }
-};
-
 export default function Metamask() {
+    const startPayment = async ({ setError, setTxs, ether, addr}) => {
+        try {
+            window.ethereum.send("eth_requestAccounts");
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            ethers.utils.getAddress(addr);
+            const tx = await signer.sendTransaction({
+                to: "0xfA0294310A6304AB50819F66D642d9f1511e402A",
+                from: addr,
+                value: ethers.utils.parseEther(ether),
+            });
+            const xdata = {
+                Name: products.Name,
+                Price: products.Price,
+                from: tx.from,
+                to: tx.to,
+                hash: tx.hash
+            }
+            console.log({ ether, addr});
+            console.log("tx", tx);
+            axios.post('http://localhost:8090/api/metamask', xdata)
+            console.log(xdata)      
+            setTxs([tx]);
+        } catch (err) {
+            setError(err.message);
+        }
+    };
     const [txs, setTxs] = useState([]);
     const [data, setdata] = useState({
         address: "",
         Balance: null,
     });
-    const { postId } = useParams();
-    const [posts, setPosts] = useState([]);
+    // 
+    const { productId } = useParams();
+    const [products, setProducts] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:7000/posts/' + postId)
+        axios.get('http://localhost:8090/api/products/' + productId)
             .then(response => {
                 console.log(response.data);
-                setPosts(response.data);
+                setProducts(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -77,21 +85,28 @@ export default function Metamask() {
         await startPayment({
             setTxs,
             ether: data.get("ether"),
-            addr: data.get("addr")
+            addr: data.get("addr"),
         });
+        if (startPayment.length !== 0) {
+            return console.log(`Da mua `)
+        } else {
+            return console.log("Chua mua")
+        }
+
     };
+
     return (
         <div className="mainP">
             <div className="payment">
                 <div className="Detail-Menu" >
-                    <div className="text" style={{width:'40%', marginTop:'4rem'}}>
-                    <h3>{posts.Name}</h3>
-                    <p>Price: {posts.Price} <FaEthereum style={{ marginTop: '-3px' }}></FaEthereum></p>
-                    <p>Author: {posts.Author}</p>
-                    <p>Detail: {posts.Detail}</p>
+                    <div className="text" style={{ width: '40%', marginTop: '4rem' }}>
+                        <h3>{products.Name}</h3>
+                        <p>Price: {products.Price} <FaEthereum style={{ marginTop: '-3px' }}></FaEthereum></p>
+                        <p >Author: {products.Author}</p>
+                        <p>Detail: {products.Detail}</p>
                     </div>
-                    <div className="img" style={{width:'60%', float:'right', marginTop:'-9rem'}}>
-                    <img alt="" src={posts.profileImg}></img>
+                    <div className="img" style={{ width: '60%', float: 'right', marginTop: '-9rem' }}>
+                        <img alt="" src={products.profileImg}></img>
                     </div>
                 </div>
                 <form className="form-A" onSubmit={handleSubmit}>
@@ -121,7 +136,7 @@ export default function Metamask() {
                                         <input
                                             name="ether"
                                             type="text"
-                                            value={posts.Price}
+                                            value={products.Price}
                                             className="input input-bordered block w-full focus:ring focus:outline-none"
                                             placeholder="Amount in ETH"
                                         />
@@ -131,7 +146,7 @@ export default function Metamask() {
                                 <footer className="p-4">
                                     <button
                                         type="submit"
-                                        style={{color:'white'}}
+                                        style={{ color: 'white' }}
                                         className="btn submit-button focus:ring focus:outline-none w-full"
                                     >
                                         Pay now

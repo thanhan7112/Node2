@@ -59,7 +59,7 @@ export default class Create extends Component {
         //     Author: this.state.Author,
         // };
 
-        axios.post('http://localhost:7000/posts', obj,)
+        axios.post('http://localhost:8090/api/products', obj,)
             .then(res => console.log(res.data));
 
         this.setState({

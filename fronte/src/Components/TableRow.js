@@ -9,7 +9,7 @@ class TableRow extends Component {
         this.delete = this.delete.bind(this);
     }
     delete() {
-        axios.delete('http://localhost:7000/posts/' + this.props.obj._id)
+        axios.delete('http://localhost:8090/api/products/' + this.props.obj._id)
             .then(console.log('Deleted'))
             .catch(err => console.log(err))
         window.location.reload(true); //Auto reload page
