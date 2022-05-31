@@ -1,29 +1,28 @@
 const User = require('../models/UserModel');
 // const router = express.Router();
 const bcrypt = require('bcrypt');
-// const saltRounds = 10;
-// var salt = bcrypt.genSaltSync(saltRounds);
+const saltRounds = 10;
+var salt = bcrypt.genSaltSync(saltRounds);
 const jwt = require('jsonwebtoken');
 const key = "nguyenthanhan";
 exports.Login = async (req, res) => {
-    try {
-        const user = await User.find({
-            where: {
-                Email: req.body.Email
-            }
+    const body = req.body;
+    const user = await User.findOne({ Email: body.Email });
+    if (user) {
+      const validPassword = await bcrypt.compare(body.Password, user.Password);
+      if (validPassword) {
+        res.status(200).json({
+          code:200,
+          message: "Mat khau hop le",
+          token: jwt.sign({Email: user.Email, _id: user._id},key, {expiresIn:"1h"})
         });
-        const match = await bcrypt.compare(req.body.Password, user[0].Password);
-        if (!match) return res.status(400).json({ msg: "Wrong Password" });
-        const userId = user[0].id;
-        const Email = user[0].Email;
-        const accessToken = jwt.sign({ Email ,userId}, key, {
-            expiresIn: '1h'
-        });
-        res.json({ accessToken });
-    } catch (error) {
-        res.status(404).json({ message: "Email not found" });
+      } else {
+        res.status(400).json({ error: "Mat khau khong hop le" });
+      }
+    } else {
+      res.status(401).json({ error: "Nguoi dung khong hop le" });
     }
-}
+  }
 exports.getUsers = async (req, res) => {
     try {
         const user = await User.find({
@@ -35,22 +34,35 @@ exports.getUsers = async (req, res) => {
     }
 }
 exports.Register = async (req, res) => {
-    const { Name, MobileNumber, Email, Password, confPassword } = req.body;
-    if (Password !== confPassword) return res.status(400).json({ msg: "Password and Confirm Password do not match" });
-    const salt = await bcrypt.genSalt();
-    const hashPassword = await bcrypt.hash(Password, salt);
-    try {
-        await User.create({
-            Name: Name,
-            Email: Email,
-            Password: hashPassword,
-            MobileNumber: MobileNumber,
-        });
-        res.json({ message: "Registration Successful" });
-        // res.json({token: jwt.sign({Email}, key)});
-    } catch (error) {
-        console.log(error);
-    }
+//     var data = new User();
+//     data.Email = req.body.Email;
+//     data.Name = req.body.Name;
+//     data.MobileNumber = req.body.MobileNumber;
+//     data.Password = bcrypt.hashSync(req.body.Password, salt);
+//     data.save(function(err, response) {
+//         if(err) {
+//             res.status(201).json({
+//                 code:201,
+//                 message:" Co loi"
+//             })
+//         }else{
+//             res.status(200).json({
+//                 code:200,
+//                 message:" thanh cong",
+//                 data: response,
+//                 token: jwt.sign({Email:response.email, _id: response._id},key)
+//             })
+//         }
+//     })
+// }
+const body = req.body;
+if (!(body.Email && body.Password)) {
+  return res.status(400).send({ error: "Du lieu khong dung dinh dang" });
+}
+const user = new User(body);
+const salt = await bcrypt.genSalt(10);
+user.Password = await bcrypt.hash(user.Password, salt);
+user.save().then((doc) => res.status(201).send(doc));
 }
 // exports.GetUseId = async (req, res) => {
 //     const data = {

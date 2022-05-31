@@ -17,13 +17,14 @@ import SigninUser from './Pages/signupUser';
 import Metamask from './Pages/Metamask/metamask';
 import Sold from './Pages/Sold';
 import Admin from './Components/Admin';
+import { Email } from './ContractUs/ContactUs';
 function App() {
   return (
     <BrowserRouter>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/About' element={<About />} />
+        <Route path='/Contact' element={<Email />} />
         <Route path='/Menu' element={<Menu />} />
         {/* <Route path='/Payment' element={<Payment />} /> */}
         <Route path='/Login' element={<Login />} />

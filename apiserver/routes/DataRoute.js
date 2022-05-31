@@ -3,6 +3,7 @@ const router = express.Router();
 const apiUser = require("../controller/UserController");
 const apiAdmin = require("../controller/AdminController");
 const apiMeta = require("../controller/MetaController");
+const apiHome = require("../controller/HomeController");
 let multer = require('multer'),
     { v4: uuidv4 } = require('uuid');
 uuidv4();
@@ -50,6 +51,12 @@ router.post('/products',upload.single('profileImg'), apiAdmin.CreateProduct);
 router.delete('/products/:productId', apiAdmin.DeleteProduct);
 router.patch('/products/:productId', upload.single('profileImg'),apiAdmin.UpdateProduct);
 
+//Home
+router.get('/home', apiHome.GetHome);
+router.get('/home/:homeId', apiHome.GetHomeById);
+router.post('/home', apiHome.PostHome);
+router.delete('/home/:homeId', apiHome.DeleteHome);
+router.patch('/home/:homeId', apiHome.UpdateHome);
 
 
 module.exports = router;

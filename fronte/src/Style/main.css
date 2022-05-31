@@ -17,6 +17,7 @@
     margin-left: 170px;
 }
 .nav-link{
+    margin-top: -2rem;
     text-decoration: none;
     color: aliceblue;
 }
