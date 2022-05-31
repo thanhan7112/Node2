@@ -8,7 +8,6 @@ export default class Index extends Component {
         super(props);
         this.state = { products: [] };
     }
-
     componentDidMount() {
         axios.get('http://localhost:8090/api/products')
             .then(response => {
@@ -25,7 +24,6 @@ export default class Index extends Component {
             return <TableRow obj={object} key={i} />;
         });
     }
-
     render() {
         return (
             <div>

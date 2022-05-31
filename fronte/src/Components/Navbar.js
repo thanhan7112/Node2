@@ -15,9 +15,6 @@ function Navbar() {
                         <Link to='/Menu' className='nav-link'>Menu</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to='/Payment' className='nav-link'>Payment</Link>
-                    </li>
-                    <li className="nav-item">
                         <Link to='/Login' className='nav-link'>Login</Link>
                     </li>
                 </ul>

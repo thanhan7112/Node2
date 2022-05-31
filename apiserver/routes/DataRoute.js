@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const apiUser = require("../controller/UserController");
 const apiAdmin = require("../controller/AdminController");
-const apiMeta = require("../controller/Metamask");
+const apiMeta = require("../controller/MetaController");
 let multer = require('multer'),
     { v4: uuidv4 } = require('uuid');
 uuidv4();
@@ -29,6 +29,12 @@ var upload = multer({
         }
     }
 });
+//Pay with metamask
+router.get('/metamask', apiMeta.GetMeta)
+router.get('/metamask/:metaId', apiMeta.GetMetaById);
+router.post('/metamask', apiMeta.CreatePayMeta);
+router.delete('/metamask/:metaId', apiMeta.DeleteMeta);
+router.patch('/metamask/:metaId', apiMeta.UpdateMeta);
 //UserLogin
 router.post('/login', apiUser.Login);
 router.post('/regist', apiUser.Register);
@@ -44,11 +50,6 @@ router.post('/products',upload.single('profileImg'), apiAdmin.CreateProduct);
 router.delete('/products/:productId', apiAdmin.DeleteProduct);
 router.patch('/products/:productId', upload.single('profileImg'),apiAdmin.UpdateProduct);
 
-//Pay with metamask
-router.get('/metamask', apiMeta.GetMeta);
-router.get('/metamask/:metaId', apiMeta.GetMetaById);
-router.post('/metamask', apiMeta.CreatePayMeta);
-router.delete('/metamask/:metaId', apiMeta.DeleteMeta);
-router.patch('/metamask/:metaId', apiMeta.UpdateMeta);
+
 
 module.exports = router;

@@ -11,7 +11,6 @@ import Signin from './Pages/signup';
 import Create from './Components/create.component';
 import Edit from './Components/edit.component';
 import Index from './Components/index.component';
-import Payment from './Pages/Payment';
 import User from './Pages/User';
 import Login from './Pages/Login';
 import SigninUser from './Pages/signupUser';
@@ -26,9 +25,9 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/About' element={<About />} />
         <Route path='/Menu' element={<Menu />} />
-        <Route path='/Payment' element={<Payment />} />
+        {/* <Route path='/Payment' element={<Payment />} /> */}
         <Route path='/Login' element={<Login />} />
-        <Route path='/Login/user' element={<User />} />       
+        <Route path='/Login/user' element={<User />} />   
         <Route path='/Login/admin' element={<Signup />} />
         <Route path='/Login/admin/pageadmin' element={<Admin/>}/>
         <Route exact path="/Login/user/signup" element={<SigninUser />} />
@@ -36,7 +35,7 @@ function App() {
         <Route path='/Login/create' element={<Create/>} />
         <Route path='/PayWithMetaMask/:productId' element={<Metamask/>} />
         <Route path='Login/edit/:productId' element={<Edit/>} />
-        <Route path='/Login/Sold' element={<Sold/>} />
+        <Route path='/Login/Sold/' element={<Sold/>} />
         <Route path='/Login/index' element={<Index/>} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>

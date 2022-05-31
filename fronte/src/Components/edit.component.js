@@ -21,7 +21,7 @@ class Edit extends Component {
 
         this.state = {
             Name: '',
-            productId: '',
+            // productId: '',
             Price:'',
             Author:'',
             // profileImg: '',
@@ -35,7 +35,7 @@ class Edit extends Component {
                 this.setState({
                     Name: response.data.Name,
                     Price: response.data.Price,
-                    productId: response.data.productId,
+                    // productId: response.data.productId,
                     Author: response.data.Author, 
                     // profileImg: response.data.profileImg,
                     Detail: response.data.Detail,   

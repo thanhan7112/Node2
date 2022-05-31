@@ -6,6 +6,7 @@ const cors = require("cors");
 const Post = 8090;
 // var session = require('express-session');
 const ApiRoute = require('./routes/DataRoute')
+// const ApiMeta = require('./routes/DataRoute')
 app.use(cors());
 
 app.use('/public', express.static('public'));
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', ApiRoute);
 //
-
+// app.use('/meta', ApiMeta);
 
 mongoose.connect('mongodb+srv://nodejs2web:123456789An@cluster0.bcukn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true});
 

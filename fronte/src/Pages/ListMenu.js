@@ -3,6 +3,7 @@ import { React, useState, useEffect, useReducer } from 'react'
 import Axios from "axios";
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
+import '../Style/main.css';
 import { FaEthereum } from "react-icons/fa";
 import { FaPlusCircle, FaCartArrowDown, FaHandHoldingUsd, FaMinusCircle } from "react-icons/fa";
 const currencyOptions = {
