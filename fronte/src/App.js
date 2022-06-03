@@ -18,6 +18,9 @@ import Metamask from './Pages/Metamask/metamask';
 import Sold from './Pages/Sold';
 import Admin from './Components/Admin';
 import { Email } from './ContractUs/ContactUs';
+import CreateHome from './Components/Home/HomeCreate';
+import HomeIndex from './Components/Home/HomeIndex';
+import HomeEdit from './Components/Home/HomeEdit';
 function App() {
   return (
     <BrowserRouter>
@@ -26,18 +29,20 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/Contact' element={<Email />} />
         <Route path='/Menu' element={<Menu />} />
-        {/* <Route path='/Payment' element={<Payment />} /> */}
         <Route path='/Login' element={<Login />} />
-        <Route path='/Login/user' element={<User />} />   
+        <Route path='/Login/user' element={<User />} />
         <Route path='/Login/admin' element={<Signup />} />
-        <Route path='/Login/admin/pageadmin' element={<Admin/>}/>
+        <Route path='/Login/HomeEdit' element={<CreateHome />} />
+        <Route path='/Login/Homeindex' element={<HomeIndex />} />
+        <Route path='/Login/admin/pageadmin' element={<Admin />} />
         <Route exact path="/Login/user/signup" element={<SigninUser />} />
         <Route exact path="/Login/admin/signup" element={<Signin />} />
-        <Route path='/Login/create' element={<Create/>} />
-        <Route path='/PayWithMetaMask/:productId' element={<Metamask/>} />
-        <Route path='Login/edit/:productId' element={<Edit/>} />
-        <Route path='/Login/Sold/' element={<Sold/>} />
-        <Route path='/Login/index' element={<Index/>} />
+        <Route path='/Login/create' element={<Create />} />
+        <Route path='/PayWithMetaMask/:productId' element={<Metamask />} />
+        <Route path='Login/edit/:productId' element={<Edit />} />
+        <Route path='Login/Homeedit/:homeId' element={<HomeEdit />} />
+        <Route path='/Login/Sold/' element={<Sold />} />
+        <Route path='/Login/index' element={<Index />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

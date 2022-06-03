@@ -15,39 +15,40 @@ class Edit extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangePrice = this.onChangePrice.bind(this);
         this.onChangeAuthor = this.onChangeAuthor.bind(this);
-        // this.onFileChange = this.onFileChange.bind(this);
+        this.onFileChange = this.onFileChange.bind(this);
         this.onChangeDetail = this.onChangeDetail.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             Name: '',
             // productId: '',
-            Price:'',
-            Author:'',
-            // profileImg: '',
-            Detail:''
+            Price: '',
+            Author: '',
+            profileImg: '',
+            Detail: ''
         }
     }
 
     componentDidMount() {
         axios.get('http://localhost:8090/api/products/' + this.props.params.productId)
-            .then(response => { console.log(response.data)
+            .then(response => {
+                console.log(response.data)
                 this.setState({
                     Name: response.data.Name,
                     Price: response.data.Price,
                     // productId: response.data.productId,
-                    Author: response.data.Author, 
-                    // profileImg: response.data.profileImg,
-                    Detail: response.data.Detail,   
+                    Author: response.data.Author,
+                    profileImg: response.data.profileImg,
+                    Detail: response.data.Detail,
                 });
             })
             .catch(function (error) {
                 console.log(error);
             })
     }
-    // onFileChange(e) {
-    //     this.setState({ profileImg: e.target.files[0] })
-    // }
+    onFileChange(e) {
+        this.setState({ profileImg: e.target.files[0] })
+    }
     onChangeDetail(event) {
         this.setState({
             Detail: event.target.value
@@ -71,7 +72,7 @@ class Edit extends Component {
     onSubmit(event) {
         event.preventDefault();
         const obj = new FormData()
-        // obj.append('profileImg', this.state.profileImg)
+        obj.append('profileImg', this.state.profileImg)
         obj.append('Name', this.state.Name)
         obj.append('Price', this.state.Price)
         obj.append('Author', this.state.Author)
@@ -83,18 +84,18 @@ class Edit extends Component {
         // };
         axios.patch('http://localhost:8090/api/products/' + this.props.params.productId, obj)
             .then(res => console.log(res.data));
-            this.setState({
-                Name: '',
-                Price: '',
-                Author: '',
-                // profileImg: '',
-                Detail:''
-            })
+        this.setState({
+            Name: '',
+            Price: '',
+            Author: '',
+            profileImg: '',
+            Detail: ''
+        })
     }
 
     render() {
         return (
- <div className='Container'>
+            <div className='Container'>
                 <h3 align="center">ID:{this.props.params.productId}</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
@@ -130,14 +131,14 @@ class Edit extends Component {
                             placeholder="Author"
                         />
                     </div>
-                    {/* <div className="form-group">
+                    <div className="form-group">
                         <input type="file" onChange={this.onFileChange} />
-                    </div> */}
+                    </div>
                     <div className="form-group">
                         <input type="submit"
                             value="Update Post"
                             className="btn btn-primary" />
-                            
+
                     </div>
                     <div className="form-group">
                         <Link to='/Login/index'>Index</Link>

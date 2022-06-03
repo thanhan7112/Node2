@@ -10,19 +10,21 @@ exports.GetHome = async(req, res) =>{
 }
 
 exports.PostHome = async(req, res) =>{
+       
     const home = new Home({
         MainTitle: req.body.MainTitle,
         TitleSub: req.body.TitleSub,
         MainTitle2: req.body.MainTitle2,
         MainTitle3: req.body.MainTitle3,
         PhoneNumber: req.body.PhoneNumber,
-        EmailShop: req.body.EmailShop,
+        EmailShop: req.body.EmailShop
+
     });
-    try{
-        const saveHome = await home.save();
-        res.json(saveHome);
+    try {
+        const savedHome = await home.save();
+        res.json(savedHome);
     }catch (err) {
-        res.json({message: err})
+        res.json({message: err});
     }
 }
 

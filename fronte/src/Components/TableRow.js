@@ -20,19 +20,19 @@ class TableRow extends Component {
                 <td >
                     <a style={{ width: '5%', marginLeft:'4.5rem' }}><img style={{ width: '50px', height:'50px', backgroundColor:'black'}} alt="" src={this.props.obj.profileImg}></img></a>
                 </td>
-                <td>
+                <td style={{color:'white'}}>
                     {this.props.obj.Name}
                 </td>
-                <td>
+                <td style={{color:'white'}}>
                     {this.props.obj.Price}
                 </td>
-                <td>
+                <td style={{color:'white'}}>
                     {this.props.obj.Author}
                 </td>
-                <td>
+                <td style={{color:'white'}}>
                     {this.props.obj.Detail}
                 </td>
-                <td>
+                <td >
                     <Link to={"/Login/edit/" + this.props.obj._id} className="btn btn-primary">Edit</Link>
                 </td>
                 <td>

@@ -5,6 +5,9 @@ function Admin() {
         <div className='Adminpage'>
             <nav >
                 <ul >
+                <li className="underlineHover" type="submit">
+                        <Link type="text" to='/Login/HomeEdit' className='nav-link'>Home</Link>
+                    </li>
                     <li className="underlineHover" type="submit">
                         <Link type="text" to='/Login/create' className='nav-link'>Create</Link>
                     </li>

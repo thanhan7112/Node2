@@ -26,5 +26,9 @@ const HomeSchema = mongoose.Schema({
 },{
     collection:"HomePage"
 });
-
+HomeSchema.method("toJSON", function() {
+    const { __v, _id, ...object } = this.toObject();
+    object.homeId = _id;
+    return object;
+  });
 module.exports = mongoose.model("Home", HomeSchema);

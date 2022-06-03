@@ -2,6 +2,7 @@ import './Menu.css'
 import React, { useState } from "react";
 import List from './ListMenu';
 import { FaRegDotCircle } from "react-icons/fa";
+import Footer from './Footer/Footer';
 function Menu() {
     const [inputText, setInputText] = useState("");
     let inputHandler = (e) => {
@@ -12,13 +13,18 @@ function Menu() {
 
 
     return (
-        <div>
-            <div className="search-box">
+        <div className='MenuPage'>
+            {/* <div className="search-box">
                 <button className="btn-search"><FaRegDotCircle style={{color:'white'}} className="fas fa-search"></FaRegDotCircle></button>
                 <input onChange={inputHandler} type="text" className="input-search" placeholder="Type to Search..." />
+            </div> */}
+            <div class="container" style={{marginLeft:'25rem'}}>
+                <input onChange={inputHandler} type="text" placeholder="Search..." />
+                <div class="search"></div>
             </div>
-        
-            <List  input={inputText}></List>
+
+            <List input={inputText}></List>
+            <Footer></Footer>
         </div>
     );
 }

@@ -96,6 +96,7 @@ export default function Metamask() {
     };
 
     return (
+        <div className="Page">
         <div className="mainP">
             <div className="payment">
                 <div className="Detail-Menu" >
@@ -161,6 +162,7 @@ export default function Metamask() {
                 </form>
             </div>
             <TransactionM txs={txs} />
+        </div>
         </div>
     );
 }

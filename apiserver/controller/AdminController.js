@@ -28,7 +28,11 @@ exports.CreateProduct = async (req, res) => {
                 message: "User registered successfully!",
                 userCreated: {
                     _id: result._id,
-                    profileImg: result.profileImg
+                    profileImg: result.profileImg,
+                    Name: result.Name,
+                    Price: result.Price,
+                    Author: result.Author,
+                    Detail: result.Detail
                 }
             })
     })

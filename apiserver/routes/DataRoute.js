@@ -4,6 +4,8 @@ const apiUser = require("../controller/UserController");
 const apiAdmin = require("../controller/AdminController");
 const apiMeta = require("../controller/MetaController");
 const apiHome = require("../controller/HomeController");
+const apiContact = require("../controller/ContactController");
+const apiFooter = require("../controller/FooterController");
 let multer = require('multer'),
     { v4: uuidv4 } = require('uuid');
 uuidv4();
@@ -58,5 +60,17 @@ router.post('/home', apiHome.PostHome);
 router.delete('/home/:homeId', apiHome.DeleteHome);
 router.patch('/home/:homeId', apiHome.UpdateHome);
 
+//Contact
+router.get('/contact', apiContact.GetContact);
+router.get('/contact/:contactId', apiContact.GetContactById);
+router.post('/contact', apiContact.PostContact);
+router.delete('/contact/:contactId', apiContact.DeleteContact);
+router.patch('/contact/:contactId', apiContact.UpdateContact)
 
+//Footer
+router.get('/footer', apiFooter.GetFoo);
+router.get('/footer/:footerId', apiFooter.GetFooterById);
+router.post('/footer', apiFooter.PostFooter);
+router.delete('/footer/:footerId', apiFooter.DeleteFooter);
+router.patch('/footer/:footerId', apiFooter.UpdateFooter)
 module.exports = router;

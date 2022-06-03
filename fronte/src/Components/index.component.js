@@ -26,7 +26,8 @@ export default class Index extends Component {
     }
     render() {
         return (
-            <div>
+            
+            <div className='PageCreate'>
 
                 <table className="table table-striped" style={{ marginTop: 20 , width:'90%', marginLeft:'4rem'}}>
                     <thead>
@@ -44,7 +45,7 @@ export default class Index extends Component {
                         {this.tabRow()}
                     </tbody>
                 </table>
-                <div className="form-group"><Link to='/Login/create' className='underlineHover'>Create here...</Link></div>
+                <div style={{paddingLeft:'4rem'}} className="form-group"><Link to='/Login/create' className='underlineHover'>Create here...</Link></div>
             </div>
         );
     }

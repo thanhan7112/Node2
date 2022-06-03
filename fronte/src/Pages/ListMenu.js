@@ -10,11 +10,10 @@ const currencyOptions = {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 }
-
-function getTotal(cart) {
-  const total = cart.reduce((totalCost, item) => totalCost + item.Price, 0);
-  return total.toLocaleString(undefined, currencyOptions)
-}
+// function getTotal(cart) {
+//   const total = cart.reduce((totalCost, item) => totalCost + item.Price, 0);
+//   return total.toLocaleString(undefined, currencyOptions)
+// }
 function cartReducer(state, action) {
   switch (action.type) {
     case 'add':
@@ -54,7 +53,7 @@ function List(props) {
   useEffect(() => {
     fetchProducts();
   }, []);
-
+  const str = undefined;
   const filteredData = products.filter((el) => {
     if (props.input === '') {
       return el;

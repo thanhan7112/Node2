@@ -19,7 +19,7 @@ export default class Create extends Component {
             Price: '',
             Author: '',
             profileImg: '',
-            Detail:''
+            Detail: ''
         }
     }
     onFileChange(e) {
@@ -67,46 +67,48 @@ export default class Create extends Component {
             Price: '',
             Author: '',
             profileImg: '',
-            Detail:''
+            Detail: ''
         })
     }
 
     render() {
         return (
-            <div className='Container'>
-                <h3>Add New Post</h3>
-                <form onSubmit={this.onSubmit}>
+            <div className='PageCreate'>
+                <div className='Container'>
+                    <h3>Add New Post</h3>
+                    <form onSubmit={this.onSubmit}>
 
-                    <div className="form-group">
-                        <input type="text" className="form-control"
-                            value={this.state.Name}
-                            onChange={this.onChangeName} placeholder="Name"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control" value={this.state.Price}
-                            onChange={this.onChangePrice} placeholder="Price" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control"
-                            value={this.state.Author}
-                            onChange={this.onChangeAuthor} placeholder="Author"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control"
-                            value={this.state.Detail}
-                            onChange={this.onChangeDetail} placeholder="Detail"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <input type="file" onChange={this.onFileChange} />
-                    </div>
-                    <div className="form-group">
-                        <input type="submit" value="Register Post" className="btn btn-primary" />
-                    </div>
-                    <div className="form-group"><Link className='underlineHover' to='/Login/index'>Index here...</Link></div>
-                </form>
+                        <div className="form-group">
+                            <input type="text" className="form-control"
+                                value={this.state.Name}
+                                onChange={this.onChangeName} placeholder="Name"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input type="text" className="form-control" value={this.state.Price}
+                                onChange={this.onChangePrice} placeholder="Price" />
+                        </div>
+                        <div className="form-group">
+                            <input type="text" className="form-control"
+                                value={this.state.Author}
+                                onChange={this.onChangeAuthor} placeholder="Author"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input type="text" className="form-control"
+                                value={this.state.Detail}
+                                onChange={this.onChangeDetail} placeholder="Detail"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input type="file" onChange={this.onFileChange} />
+                        </div>
+                        <div className="form-group">
+                            <input type="submit" value="Register Post" className="btn btn-primary" />
+                        </div>
+                        <div className="form-group"><Link className='underlineHover' to='/Login/index'>Index here...</Link></div>
+                    </form>
+                </div>
             </div>
         )
     }

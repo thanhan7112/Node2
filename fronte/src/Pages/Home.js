@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import Sold from './Sold';
 import { Link } from 'react-router-dom';
+import { Footer } from './Footer/Footer';
 class Home extends Component {
 
     constructor(props) {
@@ -155,7 +156,6 @@ class Home extends Component {
                     <a href="#">Follow Us</a>
 
                 </footer>
-
             </div>
         )
 

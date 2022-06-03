@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import '../Style/main.css';
 function Login () {
     return(
-        <div className="LoginForm" style={{marginLeft:"35%", marginTop:"5%"}}>
-            <nav>
+        <div className="choose">
+        <div className="LoginForm" style={{marginLeft:"35%"}}>
+            <nav style={{paddingTop:"10%"}}>
                 <ul>
                     <li className="underlineHover" type="submit">
                         <Link type="text" to="/Login/user" className='nav-link'>You are user ?</Link>
@@ -13,6 +14,7 @@ function Login () {
                     </li>
                 </ul>
             </nav>
+        </div>
         </div>
     )
 }
