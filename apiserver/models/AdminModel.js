@@ -20,6 +20,7 @@ const AdminSchema = mongoose.Schema({
     Detail: {
         type: String,
     },
+
     date:{
         type: Date,
         default: Date.now

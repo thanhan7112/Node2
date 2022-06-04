@@ -20,7 +20,7 @@ const Signin = () => {
         Password: Password,
         confPassword: confPassword
       });
-      navigate("/Login/admin");
+      navigate("/Login/admin/pageadmin");
     } catch (error) {
       console.log(error)
     }
@@ -54,14 +54,14 @@ const Signin = () => {
           <div className="fadeIn first">
             <input type="submit" value="Register User" className="btn btn-primary" />
           </div>
-          <div id="formFooter">
+          {/* <div id="formFooter">
             <p>
               Have already an account?
               <a href="/Login/admin" className="underlineHover">
                 Sign in here
               </a>
             </p>
-          </div>
+          </div> */}
         </center>
       </form>
     </div>

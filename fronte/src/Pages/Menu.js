@@ -14,10 +14,6 @@ function Menu() {
 
     return (
         <div className='MenuPage'>
-            {/* <div className="search-box">
-                <button className="btn-search"><FaRegDotCircle style={{color:'white'}} className="fas fa-search"></FaRegDotCircle></button>
-                <input onChange={inputHandler} type="text" className="input-search" placeholder="Type to Search..." />
-            </div> */}
             <div class="container" style={{marginLeft:'25rem'}}>
                 <input onChange={inputHandler} type="text" placeholder="Search..." />
                 <div class="search"></div>

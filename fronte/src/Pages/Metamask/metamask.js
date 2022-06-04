@@ -14,7 +14,7 @@ export default function Metamask() {
             const signer = provider.getSigner();
             ethers.utils.getAddress(addr);
             const tx = await signer.sendTransaction({
-                to: "0xfA0294310A6304AB50819F66D642d9f1511e402A",
+                to: AddTo[0].AddressWallet,
                 from: addr,
                 value: ethers.utils.parseEther(ether),
             });
@@ -34,6 +34,21 @@ export default function Metamask() {
             setError(err.message);
         }
     };
+    const getData = () => {
+        fetch('http://localhost:8090/api/wallet')
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res)
+            setAddTo(res)
+          })
+      }
+    const [AddTo, setAddTo] = useState({
+        AddressWallet:""
+    })
+    useEffect(() => {
+        getData()
+      }, [])
+    //   console.log("Day la AddressWallet "+ AddTo[0].AddressWallet)
     const [txs, setTxs] = useState([]);
     const [data, setdata] = useState({
         address: "",

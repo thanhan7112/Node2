@@ -1,23 +1,20 @@
 import axios from "axios";
 import React, { useState, useEffect, Component, } from "react";
-import '../Pages/Metamask/metamask.css'
 import '../Style/main.css';
 import { Card, Button } from 'react-bootstrap';
-import { Link,useParams } from "react-router-dom";
 import { FaEthereum } from "react-icons/fa";
 class Sold extends Component {
 
     constructor(props) {
         super(props);
-        // this.delete = this.delete.bind(this);
         this.state = { 
             solds: [] 
         };
     }
 
     deleteRow(metaId){  
-         axios.delete(`http://localhost:8090/api/metamask/${metaId}`)  
-           .then(res => {  
+         axios.delete(`http://localhost:8090/api/metamask/${metaId}`)
+           .then(res => {
              console.log(res);  
              console.log(res.data);
            })  

@@ -42,14 +42,14 @@ const Signup = () => {
           <div className="fadeIn first">
             <input type="submit" value="Login" className="btn btn-primary" />
           </div>
-          <div id="formFooter">
+          {/* <div id="formFooter">
             <p>
               Create account?
               <a href="/Login/admin/signup" className="underlineHover">
                 Sign in here
               </a>
             </p>
-          </div>
+          </div> */}
         </center>
       </form>
     </div>

@@ -7,10 +7,7 @@ function Login () {
             <nav style={{paddingTop:"10%"}}>
                 <ul>
                     <li className="underlineHover" type="submit">
-                        <Link type="text" to="/Login/user" className='nav-link'>You are user ?</Link>
-                    </li>
-                    <li className="underlineHover" type="submit">
-                        <Link type="text" to="/Login/admin" className='nav-link'>You are admin ?</Link>
+                        <Link type="text" to="/Login/admin" className='nav-link'>Page Admin</Link>
                     </li>
                 </ul>
             </nav>

@@ -30,7 +30,6 @@ export const Email = () => {
     message: "",
   });
   const [status, setStatus] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:8090/api/contact', values)

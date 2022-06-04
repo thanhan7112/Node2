@@ -6,6 +6,7 @@ const apiMeta = require("../controller/MetaController");
 const apiHome = require("../controller/HomeController");
 const apiContact = require("../controller/ContactController");
 const apiFooter = require("../controller/FooterController");
+const apiWallet = require("../controller/WalletController");
 let multer = require('multer'),
     { v4: uuidv4 } = require('uuid');
 uuidv4();
@@ -73,4 +74,11 @@ router.get('/footer/:footerId', apiFooter.GetFooterById);
 router.post('/footer', apiFooter.PostFooter);
 router.delete('/footer/:footerId', apiFooter.DeleteFooter);
 router.patch('/footer/:footerId', apiFooter.UpdateFooter)
+
+//Wallet
+router.get('/wallet', apiWallet.GetWallet);
+router.get('/wallet/:walletId', apiWallet.GetWalletById);
+router.post('/wallet', apiWallet.PostWallet);
+router.delete('/wallet/:walletId', apiWallet.DeleteWallet);
+router.patch('/wallet/:walletId', apiWallet.UpdateWallet)
 module.exports = router;

@@ -24,17 +24,19 @@
 ul{
     list-style-type: none !important;
 }
+button p{
+    margin-top: -0.08rem;
+}
 .icon{
     float: right;
     color: aliceblue;
 }
-
 /* .nav-link:hover{
     color: rgb(54, 78, 99);
 } */
 .Adminpage{
     margin-top: 10%;
-    margin-left: 24%;
+    margin-left: 10%;
 }
 .underlineHover[type=submit]{
     /* display: flex; */

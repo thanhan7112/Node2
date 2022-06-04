@@ -13,7 +13,6 @@ exports.GetProduct = async (req, res) =>{
 
 exports.CreateProduct = async (req, res) => {
     const url = req.protocol + '://' + req.get('host')
-    // console.log(req.body);
     const product = new Admin({
         _id: new mongoose.Types.ObjectId(),
         Name: req.body.Name,

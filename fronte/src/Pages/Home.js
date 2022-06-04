@@ -1,7 +1,7 @@
 import '../Style/style.css';
 import axios from 'axios';
 import React, { Component } from 'react';
-import Sold from './Sold';
+
 import { Link } from 'react-router-dom';
 import { Footer } from './Footer/Footer';
 class Home extends Component {
@@ -23,7 +23,6 @@ class Home extends Component {
     }
     render() {
         return (
-
             <div className='root'>
                 <div id="display" className="center__row" >
                     {this.state.homedata.map((home) => (
