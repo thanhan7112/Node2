@@ -12,7 +12,7 @@ let multer = require('multer'),
 uuidv4();
 
 const DIR = './public/';
-const storage = multer.diskStorage({
+const storage = multer.diskStorage({ 
     destination: (req, file, cb) => {
         cb(null, DIR);
     },

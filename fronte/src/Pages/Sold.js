@@ -3,6 +3,7 @@ import React, { useState, useEffect, Component, } from "react";
 import '../Style/main.css';
 import { Card, Button } from 'react-bootstrap';
 import { FaEthereum } from "react-icons/fa";
+import Footer from "../Pages/Footer/Footer";
 class Sold extends Component {
 
     constructor(props) {
@@ -38,7 +39,7 @@ class Sold extends Component {
             </div>
             <div className='row'>
             {this.state.solds.map((sold) => (
-                <Card className='btn-card' key={sold.hash} style={{ width: '18rem', marginLeft: '4rem', color: 'black', marginTop: '3rem', height:'25rem' }}>
+                <Card className='btn-card' key={sold.hash} style={{ width: '18rem', marginLeft: '4rem', color: 'black', marginTop: '3rem', height:'30rem' }}>
                 <center>
                 <Card.Body >
                     <Card.Footer style={{color:'white', fontSize:'14px'}}>{sold.hash}</Card.Footer>
@@ -52,9 +53,10 @@ class Sold extends Component {
                 </Card.Body>
                 </center>
               </Card>
-            ))}
+            ))};
+            
             </div> 
-             
+            <Footer/>
         </div>
     )
 }

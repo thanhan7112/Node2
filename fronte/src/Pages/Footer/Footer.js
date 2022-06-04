@@ -45,10 +45,10 @@ export default class Footer extends Component {
                             <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
                         </div>
                         <div class="col item social">
-                            <a href="#"><i className="icon ion-social-facebook"></i></a>
-                            <a href="#"><i className="icon ion-social-twitter"></i></a>
-                            <a href="#"><i className="icon ion-social-youtube"></i></a>
-                            <a href="#"><i className="icon ion-social-instagram"></i></a>
+                            <a href="#"><i className="icon ion-social-facebook icons"></i></a>
+                            <a href="#"><i className="icon ion-social-twitter icons"></i></a>
+                            <a href="#"><i className="icon ion-social-youtube icons"></i></a>
+                            <a href="#"><i className="icon ion-social-instagram icons"></i></a>
                         </div>
                     </div>
                     <p className="copyright">Company Name © 2022</p>

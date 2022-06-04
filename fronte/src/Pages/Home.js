@@ -155,6 +155,7 @@ class Home extends Component {
                     <a href="#">Follow Us</a>
 
                 </footer>
+                
             </div>
         )
 

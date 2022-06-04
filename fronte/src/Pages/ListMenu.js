@@ -53,7 +53,7 @@ function List(props) {
   useEffect(() => {
     fetchProducts();
   }, []);
-  const str = undefined;
+  // const str = undefined;
   const filteredData = products.filter((el) => {
     if (props.input === '') {
       return el;

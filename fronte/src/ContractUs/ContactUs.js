@@ -79,6 +79,7 @@ const handleDeleteMessage = (e) => {
   });
 };
 return (
+  <div>
   <section className="contact__section">
     {status === "SUCCESS" && renderAlertSuccess()}
     {status === "ERROR" && renderAlertError()}
@@ -210,6 +211,9 @@ return (
     </div>
     <Footer></Footer>
   </section>
+    
+  </div>
+
 );
 };
 

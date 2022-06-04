@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1200px;
+  height: 1400px;
   /* background: #0f3959; */
   font-family: monospace;
   color: #fff;
@@ -196,3 +196,4 @@ ul li .contact__media-icon:hover {
     justify-content: space-between;
   }
 }
+

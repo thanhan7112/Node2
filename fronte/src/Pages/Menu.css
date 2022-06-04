@@ -1,11 +1,10 @@
 .row {
   padding-top: 2rem;
-  width: 100vw;
+  /* width: 100vw; */
   height: auto;
   display: flex;
   align-items: center;
   font-family: 'Lato' !important;
-  
 }
 
 .MenuPage{

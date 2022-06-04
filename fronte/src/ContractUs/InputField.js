@@ -5,7 +5,7 @@ const InputField = (props) => {
         <label className="text-gray-500 text-sm" htmlFor={name}>
           {label}
         </label>
-        <input
+        <input style={{width:"200%", textAlign:'center'}}
           className="form-control"
           type={type}
           onChange={handleChange}
